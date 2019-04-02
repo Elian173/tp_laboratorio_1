@@ -35,7 +35,9 @@ while (inicio==1)
         case 3:
         system("CLS");
         if (a==0&&b==0){
-                printf("**No ingresaste ningun valor***\n\n") ; break ;};
+                printf("**No ingresaste ningun valor**\n\n") ; break ;};
+        if (a==0||b==0){
+                printf("**Para poder operar entre si , A y B deben ser diferentes a 0**\n\n") ; break ;};
         flag=1;
         printf("**Todos los valores fueron calculados, presione 4 para mostrar los resultados**\n\n");
         laSuma = suma(a,b) ; laResta = resta(a,b) ; laDivision = division(a,b) ; laMultiplicacion = multiplicacion(a,b) ;
