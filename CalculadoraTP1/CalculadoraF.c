@@ -90,7 +90,7 @@ return total ;
 };
 
 //factorizacion
-/** \brief Ingresa un numero float y se castea a int y se devuelve su factorial
+/** \brief Ingresa un numero float y se castea a int , se devuelve su factorial
  * \param "x" es el numero ingresado (NO se valida si es negativo)
  * \return El factorial de "x" como int.
  */
