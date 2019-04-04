@@ -35,9 +35,7 @@ while (inicio==1)
         case 3:
         system("CLS");
         if (a==0&&b==0){
-                printf("**No ingresaste ningun valor**\n\n") ; break ;} else{
-        if (a==0||b==0){
-            printf("**Para poder operar entre si , A y B deben ser diferentes a 0**\n\n") ; break ;}};
+                printf("**No ingresaste ningun valor**\n\n") ; break ;}
         flag=1;
         printf("**Todos los valores fueron calculados, presione 4 para mostrar los resultados**\n\n");
         laSuma = suma(a,b) ; laResta = resta(a,b) ; laDivision = division(a,b) ; laMultiplicacion = multiplicacion(a,b) ;
@@ -53,26 +51,26 @@ while (inicio==1)
            "A=%.2f------------------------------------B=%.2f\n\n", a,b);
         // suma resta
 
-        printf("A)El resultado de (%.2f)+(%.2f) es: %.2f\n\n",a,b,laSuma);
-        printf("B)El resultado de (%.2f)-(%.2f) es %.2f\n\n",a,b,laResta);
+        printf("A)El resultado de A+B es: %.2f\n\n",laSuma);
+        printf("B)El resultado de A-B es %.2f\n\n",laResta);
         //division
 
         if (b==0){
-            printf("C)No se puede dividir por 0\n\n");}
+            printf("C)El resultado de  A/B es :\n*No se puede dividir por 0*\n\n");}
         else {
-            printf("C)El resultado de (%.2f)/(%.2f) es %.2f\n\n",a,b,laDivision) ;};
+            printf("C)El resultado de  A/B es %.2f\n\n",laDivision) ;};
         //multiplicacion
 
-        printf("D)El resultado de (%.2f)*(%.2f) es %.2f\n\n",a,b,laMultiplicacion) ;
+        printf("D)El resultado de A*B es %.2f\n\n",laMultiplicacion) ;
         //factorial
         if (a<0){
-            printf("E)El factorial de A es:\nNo se puede calcular el factorial de (%.0f) porque es un numero negativo\n\n",a);}
+            printf("E)El factorial de A es:\n*No se puede calcular el factorial de (%.0f) porque es un numero negativo*\n\n",a);}
         else{
-            printf("E)El factorial de (%.0f) es: %d \n\n",a,factorialA);};
+            printf("E)El factorial de A es: %d \n\n",factorialA);};
         if (b<0){
             printf("El factorial de B es:\nNo se puede calcular el factorial de (%.0f) porque es un numero negativo\n\n",b);}
         else{
-            printf("El factorial de (%.0f) es : %d \n\n",b,factorialB);};
+            printf("El factorial de B es : %d \n\n",factorialB);};
         //pregunta volver
 
         printf("\n\nVolver al menu?\n\n") ; inicio=continuar() ;system("CLS"); break ;
