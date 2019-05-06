@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1557120900 source:c:\users\elian\desktop\tp laboratorio 2\elianrojastp2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	<ctype.h>
+	"ArrayEmployees.h"
+	"InputElian.h"
+
+1557119241 c:\users\elian\desktop\tp laboratorio 2\elianrojastp2\arrayemployees.h
+
+1557081790 c:\users\elian\desktop\tp laboratorio 2\elianrojastp2\inputelian.h
+
+1557117771 source:c:\users\elian\desktop\tp laboratorio 2\elianrojastp2\inputelian.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	<ctype.h>
+	"InputElian.h"
+	<unistd.h>
+	<windows.h>
+
+1557120937 source:c:\users\elian\desktop\tp laboratorio 2\elianrojastp2\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	<ctype.h>
+	"ArrayEmployees.h"
+	"InputElian.h"
+
