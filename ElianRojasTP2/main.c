@@ -5,8 +5,7 @@
 #include <ctype.h>
 #include "ArrayEmployees.h"
 #include "InputElian.h"
-
-#define ELEMENTS 1000
+#define ELEMENTS 2
 
 int main()
 {
@@ -19,7 +18,7 @@ int main()
 
     float auxSalary;
 
-    char auxName[25] , auxLastName[25];
+    char auxName[51] , auxLastName[51];
 
     int option , flagSpace , seleccion;
 
@@ -30,8 +29,6 @@ int main()
     initIds(employees , ELEMENTS);
 
     /////////////////////////
-
-    //hardCode(employees);
 
     //MENU//
 
@@ -53,63 +50,68 @@ int main()
                 if (flagSpace == 0 ){
                 limpiar();
                 printf("\nEmpleado cargado correctamente\n");
-                break;
-
                 } else {
                 limpiar();
                 printf("\nNo queda espacio\n");
-                break;
                 };
+                break;
 
 
             case 2:limpiar();
+
                 if ( !(isAllEmpty(employees,ELEMENTS)) ){
 
                 f_i_PedirIntEntre(&auxId , 1  , ELEMENTS , "\nIngrese el ID del empleado a modificar:\n");
+
                 auxId = findEmployeeById(employees,ELEMENTS,auxId);
 
                 if (auxId != -1){
+
                     limpiar();
                     printOneEmployee(employees , auxId , ELEMENTS , sector);
                     seleccion = f_i_SioNo("\nEs este el empleado a modificar?\n");
 
-                if (seleccion == 1 ) {
+                    if (seleccion == 1 ) {
 
+                        limpiar();
+                        modifyEmployee(employees,ELEMENTS,auxId);
+                        limpiar();
+                        printf("\nEmpleado modificado correctamente\n");
+
+                    } else {
                     limpiar();
-                    modifyEmployee(employees,ELEMENTS,auxId);
-                    limpiar();
-                    printf("\nEmpleado modificado correctamente\n");
-                    break;
+                    printf("\nNo se modifico el empleado\n");
+                    };
 
-                } else {
-                break;
-                }
-                }
-
+                }else{
                 limpiar();
                 printf("\nNo hay ningun empleado bajo ese ID\n");
-                break;
-
                 };
+
+                }else{
+
                 limpiar();
                 printf("\nNo hay ningun empleado cargado\n");
-
+                };
 
                 break;
-
 
 
             case 3:limpiar();
+
                 if ( !(isAllEmpty(employees,ELEMENTS)) ){
 
                 f_i_PedirIntEntre(&auxId , 1  , ELEMENTS , "\nIngrese el ID del empleado a dar de baja:\n");
                 limpiar();
                 removeEmployee(employees,ELEMENTS,auxId,sector);
 
-                break;
-                };
+                }else {
+
                 limpiar();
                 printf("\nNo hay ningun empleado cargado\n");
+
+                };
+
                 break;
 
             case 4:limpiar();

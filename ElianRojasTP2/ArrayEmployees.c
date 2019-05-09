@@ -69,11 +69,11 @@ int i;
 * \return int Return (-1) if Error [Invalid length or NULL pointer or without
 free space] - (0) if Ok
 **/
-int addEmployee(Employee list[],int len, char name[],char lastName[] , float salary , int sector){
+int addEmployee(Employee* list,int len, char name[],char lastName[] , float salary , int sector){
 
     //Find free space//
 
-    int i , idFreeSpace = -1;
+    int i=0 , idFreeSpace = -1;
 
     for (i=0;i<len;i++){
 
@@ -187,6 +187,8 @@ int removeEmployee(Employee* list, int len, int id , str_sector * sector){
             printf("\nEmpleado eliminado de la lista correctamente\n");
             return 0;
         } else {
+            limpiar();
+            printf("\nNo se elimino el empleado\n");
             return 0;
         };
     }
@@ -205,13 +207,13 @@ int removeEmployee(Employee* list, int len, int id , str_sector * sector){
 **/
 void chargeEmployeeData(char name[] , char lastName[] , float * salary,int * sector){
 
-    char aux [25];
+    char aux [51];
 
     f_i_PedirIntEntre(sector , 1 , 5, "Ingrese el Sector del empleado:\n1-Administracion\n2-Finanzas\n3-Mantenimiento\n4-RR.HH\n5-Ventas\n");
 
-    f_i_PedirNombre(name , 25 , "\nIngrese el Nombre del empleado:");
+    f_i_PedirNombre(name , 51 , "\nIngrese el Nombre del empleado:");
 
-    f_i_PedirNombre(lastName , 25 , "\nIngrese el Apellido del empleado:");
+    f_i_PedirNombre(lastName , 51 , "\nIngrese el Apellido del empleado:");
 
     f_i_PedirStringSoloFloat(aux,25,"\nIngrese el Salario del empleado");
 
@@ -229,7 +231,9 @@ indicate UP or DOWN order
 *
 */
 int sortEmployeesBySector(Employee * list, int len){
+
     Employee aux;
+
     int i,j;
     for(i=0; i<len-1; i++)
     {
@@ -260,7 +264,7 @@ int sortEmployeesBySector(Employee * list, int len){
 * \param id int
 * \return void
 **/
-void modifyEmployee (Employee list[],int len,int id){
+void modifyEmployee (Employee list [],int len,int id){
 
     int auxSector,option;
     char auxName[25];
@@ -269,10 +273,10 @@ void modifyEmployee (Employee list[],int len,int id){
     f_i_PedirIntEntre(&option,1,5,"\n1-Modificar Nombre\n2-Modificar Apellido\n3-Modificar Salario\n4-Modificar Sector\n5-Salir\nOpcion : ");
 
     switch (option){
-    case 1 :f_i_PedirNombre(auxName,25,"\nIngrese el Nombre del empleado:\n");
+    case 1 :f_i_PedirNombre(auxName,51,"\nIngrese el Nombre del empleado:\n");
             strcpy(list[id].name,auxName);
         break;
-    case 2 :f_i_PedirNombre(auxName,25,"\nIngrese el Apellido del empleado:\n");
+    case 2 :f_i_PedirNombre(auxName,51,"\nIngrese el Apellido del empleado:\n");
             strcpy(list[id].lastName,auxName);
         break;
     case 3 : f_i_PedirStringSoloFloat(auxName,25,"\nIngrese el Salario del empleado");
@@ -325,19 +329,19 @@ void hardCode(Employee list[]){
 
     Employee example[]=
     {
-        {1, "uno", "aaa" , 23.000,1,0},
-        {22, "dos", "zzz", 18.000, 1, 0},
-        {35, "tres", "jjj", 21.000, 5,0},
-        {42, "cuatro", "ppppp" , 24.000, 2, 0},
-        {56, "cinco", "bbb" , 34.000, 3, 0},
-        {1000, "seis", "ccc" , 32.000,5, 0},
-        {73, "siete", "iiiii" , 26.000, 4,0},
-        {99, "ocho", "wwww" , 32.000,5, 0},
-        {980, "nueve", "llll" , 32.000,5, 0},
-        {21, "diez", "kkkkkkkkk" , 32.000,5, 0}
+        {1, "Uno", "Aaa" , 23.000,1,0},
+        {22, "Dos", "Zzz", 18.000, 1, 0},
+        {35, "Tres", "Jjj", 21.000, 5,0},
+        {42, "Cuatro", "Ppppp" , 24.000, 2, 0},
+        {56, "Cinco", "Bbb" , 34.000, 3, 0},
+        {1000, "Seis", "Ccc" , 32.000,5, 0},
+        {73, "Siete", "Iiiii" , 26.000, 4,0},
+        {99, "Ocho", "Wwww" , 32.000,5, 0},
+        {980, "Nueve", "Llll" , 32.000,5, 0},
+        {21, "Diez", "Kkkkkkkkk" , 32.000,5, 0}
     };
-
-    for(int i=0; i < 10; i++)
+    int i;
+    for( i=0; i < 10; i++)
     {
         list[i] = example[i];
     };
@@ -345,6 +349,6 @@ void hardCode(Employee list[]){
 
 
 
-}
+};
 
 
